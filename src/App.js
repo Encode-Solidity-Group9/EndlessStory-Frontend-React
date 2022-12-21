@@ -13,7 +13,7 @@ function App() {
   return (
     <section className=" bg-[#282c34] min-h-screen">
       <div className="w-full bg-[#61dafb] h-14 text-[#282c34] text-center font-mono font-medium flex justify-center items-center text-lg">
-        Wanna hear the next part of the story? Add your keywords now!
+        Wanna read the rest of the story? Add your keywords now!
       </div>
       {status !== "connected" && (
         <div className="mt-28 w-full flex h-screen overflow-hidden">
