@@ -1,4 +1,3 @@
-import { async } from "q";
 import { useEffect, useState } from "react";
 
 function Story({ status, connect, account, chainId, ethereum }) {
@@ -33,9 +32,10 @@ function Story({ status, connect, account, chainId, ethereum }) {
     setError(false);
     setSuccess(false);
     let words = [];
-    // if (keywords.includes(",")) {
-    //   words = keywords.split(",");
-    // }
+    if (keywords.includes(",")) {
+      words = keywords.split(",");
+    }
+    
     if (keywords === "") {
       setErrorText(`No keywords found. At least one keyword is required.`);
       setError(true);
@@ -59,7 +59,6 @@ function Story({ status, connect, account, chainId, ethereum }) {
           );
           setSuccess(true);
           count++;
-          setKeywords("");
         })
         .catch((err) => {
           console.log(err);
@@ -152,7 +151,7 @@ function Story({ status, connect, account, chainId, ethereum }) {
               </p>
               <input
                 type="text"
-                onChange={(e) => setKeywords(e)}
+                onChange={(e) => setKeywords(e.target.value)}
                 className="block bg-[#e8fdff] outline-none font-mono text-base text-[#282c34] w-[30rem] px-3 py-4 rounded-lg"
                 placeholder="Enter your keywords here"
               />
